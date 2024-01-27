@@ -1,6 +1,6 @@
 package com.example.blogbackend.repository;
 
-import com.example.blogbackend.entity.User;
+import com.example.blogbackend.entity.ExpiredToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +9,8 @@ import java.util.UUID;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface ExpiredTokenRepository extends JpaRepository<ExpiredToken, Long> {
 
-    Optional<User> findByEmail(String email);
-
-    Optional<User> findUserById(UUID id);
+    Optional<ExpiredToken> findById(UUID id);
 
 }

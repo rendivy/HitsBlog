@@ -1,10 +1,6 @@
-package com.example.blogbackend.dto;
+package com.example.blogbackend.dto.user;
 
 import com.example.blogbackend.entity.Gender;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 
