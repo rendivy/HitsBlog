@@ -3,17 +3,14 @@ package com.example.blogbackend.interceptor;
 
 import com.example.blogbackend.dto.ErrorDTO;
 
-import jakarta.validation.ConstraintViolation;
+import io.jsonwebtoken.security.SignatureException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @ControllerAdvice
 public class ExceptionInterceptor {
@@ -21,8 +18,13 @@ public class ExceptionInterceptor {
     @ExceptionHandler
     public ResponseEntity<ErrorDTO> handleConstraintViolationException(ConstraintViolationException exception) {
 
-        ConstraintViolation<?> firstViolation = exception.getConstraintViolations().iterator().next();
-        String exceptionMessage = firstViolation.getMessageTemplate();
+        var firstViolation = exception
+                .getConstraintViolations()
+                .iterator()
+                .next();
+
+        var exceptionMessage = firstViolation
+                .getMessageTemplate();
 
         var error = ErrorDTO
                 .builder()
@@ -32,5 +34,9 @@ public class ExceptionInterceptor {
 
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
+
+
+
+    
 }
 

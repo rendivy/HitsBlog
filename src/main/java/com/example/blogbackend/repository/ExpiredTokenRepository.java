@@ -1,7 +1,16 @@
 package com.example.blogbackend.repository;
 
-public interface InvalidTokenRepository implements JpaRepository<InvalidToken, Long> {
+import com.example.blogbackend.entity.ExpiredToken;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    Optional<InvalidToken> findByToken(String token);
+import java.util.Optional;
+import java.util.UUID;
+
+
+@Repository
+public interface ExpiredTokenRepository extends JpaRepository<ExpiredToken, Long> {
+
+    Optional<ExpiredToken> findById(UUID id);
 
 }

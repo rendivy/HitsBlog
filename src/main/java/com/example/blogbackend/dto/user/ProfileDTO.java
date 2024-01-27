@@ -1,17 +1,15 @@
 package com.example.blogbackend.dto.user;
 
-import com.example.blogbackend.entity.Gender;
 import lombok.Builder;
 
-
 import java.util.Date;
+import java.util.UUID;
 
 @Builder
-public record RegisterDTO(
-        Gender gender,
+public record ProfileDTO(
+        UUID id,
         String email,
-        String password,
-        Date dateOfBirth,
         String fullName,
+        Date birthDate,
         String phoneNumber
-) { }
+){}

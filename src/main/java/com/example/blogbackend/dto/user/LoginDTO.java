@@ -1,4 +1,4 @@
-package com.example.blogbackend.dto;
+package com.example.blogbackend.dto.user;
 
 
 public record LoginDTO(
