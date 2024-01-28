@@ -1,7 +1,7 @@
 package com.example.blogbackend.dto.user;
 
 
-public record LoginDTO(
+public record LoginRequest(
         String email,
         String password
 ) { }
