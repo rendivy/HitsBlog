@@ -3,7 +3,7 @@ package com.example.blogbackend.dto;
 import lombok.Builder;
 
 @Builder
-public record ErrorDTO(
+public record ErrorDetailsResponse(
         String message,
         Integer status
 ) {}
